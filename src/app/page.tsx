@@ -1,21 +1,12 @@
-import { Inter } from 'next/font/google';
-import './globals.css';
+import Layout from '../components/Layout';
 
-const inter = Inter({ subsets: ['latin'] });
-
-export const metadata = {
-  title: 'ImageForge',
-  description: 'A versatile image and PDF editing tool',
-};
-
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function Home() {
   return (
-    <html lang="en" className="dark">
-      <body className={`${inter.className} bg-gray-900 text-white`}>{children}</body>
-    </html>
+    <Layout>
+      <h1 className="text-4xl font-bold mb-4">Welcome to ImageForge</h1>
+      <p className="text-lg text-gray-300">
+        A sleek, powerful tool for editing images and PDFs. Select a feature from the sidebar to begin!
+      </p>
+    </Layout>
   );
 }
