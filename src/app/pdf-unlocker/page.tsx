@@ -22,7 +22,10 @@ export default function PdfUnlocker() {
     try {
       const arrayBuffer = await pdfFile.arrayBuffer();
       const pdfDoc = await PDFDocument.load(arrayBuffer);
-      pdfDoc.setTitle(pdfDoc.getTitle()); 
+      const currentTitle = pdfDoc.getTitle();
+      if (currentTitle) {
+        pdfDoc.setTitle(currentTitle);
+      }
       const pdfBytes = await pdfDoc.save();
       const blob = new Blob([pdfBytes], { type: 'application/pdf' });
       const url = URL.createObjectURL(blob);
